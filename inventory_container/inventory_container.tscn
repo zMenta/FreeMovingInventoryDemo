@@ -4,7 +4,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_en2qv"]
 resource_local_to_scene = true
-size = Vector2(50, 150)
+size = Vector2(200, 150)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_qheet"]
 resource_local_to_scene = true
@@ -16,11 +16,11 @@ b = Vector2(0, 150)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_d7gaj"]
 resource_local_to_scene = true
-b = Vector2(50, 0)
+b = Vector2(200, 0)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_hv00f"]
 resource_local_to_scene = true
-b = Vector2(50, 0)
+b = Vector2(200, 0)
 
 [node name="InventoryContainer" type="ColorRect"]
 custom_minimum_size = Vector2(200, 150)
