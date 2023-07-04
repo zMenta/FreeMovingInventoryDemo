@@ -1,50 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2xei87g6pyt4"]
+[gd_scene load_steps=2 format=3 uid="uid://c2xei87g6pyt4"]
 
-[ext_resource type="PackedScene" uid="uid://c0g82r5s426ck" path="res://equipment/backpacks/backpack_layout_1.tscn" id="1_f3osy"]
-[ext_resource type="PackedScene" uid="uid://dtmnl8oh8kbnv" path="res://equipment/vests/vest_layout_1.tscn" id="1_vu3e0"]
+[ext_resource type="PackedScene" uid="uid://g4orst357vmx" path="res://inventory/inventory.tscn" id="1_xyuj6"]
 
 [node name="Main" type="Node"]
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="InventoryContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-horizontal_scroll_mode = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/InventoryContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="Vest1" parent="MarginContainer/HBoxContainer/InventoryContainer/VBoxContainer" instance=ExtResource("1_vu3e0")]
-layout_mode = 2
-
-[node name="BackPack1" parent="MarginContainer/HBoxContainer/InventoryContainer/VBoxContainer" instance=ExtResource("1_f3osy")]
-layout_mode = 2
-
-[node name="InventoryContainer2" type="ScrollContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-horizontal_scroll_mode = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/InventoryContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="Vest1" parent="MarginContainer/HBoxContainer/InventoryContainer2/VBoxContainer" instance=ExtResource("1_vu3e0")]
-layout_mode = 2
-
-[node name="BackPack1" parent="MarginContainer/HBoxContainer/InventoryContainer2/VBoxContainer" instance=ExtResource("1_f3osy")]
-layout_mode = 2
+[node name="MarginContainer" parent="." instance=ExtResource("1_xyuj6")]

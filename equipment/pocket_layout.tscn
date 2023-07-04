@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdt1nc5m5edfv"]
+
+[ext_resource type="PackedScene" uid="uid://cdxo3n54nlxmk" path="res://inventory_container/inventory_container.tscn" id="1_rfqds"]
+
+[node name="PocketLayout" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Pocket
+"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="InventoryContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_rfqds")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="InventoryContainer2" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_rfqds")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="InventoryContainer3" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_rfqds")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="InventoryContainer4" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_rfqds")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
