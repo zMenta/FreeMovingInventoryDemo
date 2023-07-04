@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdxo3n54nlxmk"]
+
+[ext_resource type="Script" path="res://inventory_container/inventory_container.gd" id="1_rx2sy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_en2qv"]
+resource_local_to_scene = true
+size = Vector2(50, 150)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qheet"]
+resource_local_to_scene = true
+b = Vector2(0, 150)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_l82iy"]
+resource_local_to_scene = true
+b = Vector2(0, 150)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_d7gaj"]
+resource_local_to_scene = true
+b = Vector2(50, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_hv00f"]
+resource_local_to_scene = true
+b = Vector2(50, 0)
+
+[node name="InventoryContainer" type="ColorRect"]
+custom_minimum_size = Vector2(200, 150)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -376.0
+offset_bottom = -174.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+color = Color(0.129558, 0.129558, 0.129558, 1)
+script = ExtResource("1_rx2sy")
+
+[node name="InventoryArea" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryArea"]
+position = Vector2(100, 75)
+shape = SubResource("RectangleShape2D_en2qv")
+
+[node name="InventoryBorders" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="Left" type="CollisionShape2D" parent="InventoryBorders"]
+shape = SubResource("SegmentShape2D_qheet")
+debug_color = Color(0.741176, 0.0980392, 0.329412, 0.419608)
+
+[node name="Right" type="CollisionShape2D" parent="InventoryBorders"]
+position = Vector2(200, 0)
+shape = SubResource("SegmentShape2D_l82iy")
+debug_color = Color(0.741176, 0.0980392, 0.329412, 0.419608)
+
+[node name="Top" type="CollisionShape2D" parent="InventoryBorders"]
+shape = SubResource("SegmentShape2D_d7gaj")
+debug_color = Color(0.741176, 0.0980392, 0.329412, 0.419608)
+
+[node name="Bottom" type="CollisionShape2D" parent="InventoryBorders"]
+position = Vector2(0, 150)
+shape = SubResource("SegmentShape2D_hv00f")
+debug_color = Color(0.741176, 0.0980392, 0.329412, 0.419608)
+
+[connection signal="resized" from="." to="." method="_on_resized"]

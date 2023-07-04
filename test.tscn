@@ -1,0 +1,159 @@
+[gd_scene load_steps=5 format=3 uid="uid://d07ymadtg7b7j"]
+
+[ext_resource type="PackedScene" uid="uid://ojpob7d0bs30" path="res://item/item.tscn" id="1_lrbex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ud1oa"]
+size = Vector2(322, 370)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_luo7r"]
+b = Vector2(0, 368)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3e8lp"]
+b = Vector2(320, 0)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 18.0
+offset_right = 850.0
+offset_bottom = 598.0
+mouse_filter = 2
+color = Color(0.32549, 0.32549, 0.32549, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/ScrollContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/ScrollContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(322, 370)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.129558, 0.129558, 0.129558, 1)
+
+[node name="InventoryArea" type="Area2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect/InventoryArea"]
+position = Vector2(159, 183)
+shape = SubResource("RectangleShape2D_ud1oa")
+
+[node name="InventoryBorders" type="Area2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect"]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect/InventoryBorders"]
+shape = SubResource("SegmentShape2D_luo7r")
+debug_color = Color(0.984314, 0, 0.329412, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect/InventoryBorders"]
+position = Vector2(320, 0)
+shape = SubResource("SegmentShape2D_luo7r")
+debug_color = Color(0.984314, 0, 0.329412, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect/InventoryBorders"]
+shape = SubResource("SegmentShape2D_3e8lp")
+debug_color = Color(0.984314, 0, 0.329412, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect/InventoryBorders"]
+position = Vector2(0, 368)
+shape = SubResource("SegmentShape2D_3e8lp")
+debug_color = Color(0.984314, 0, 0.329412, 0.419608)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(322, 370)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.129558, 0.129558, 0.129558, 1)
+
+[node name="InventoryArea" type="Area2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect2"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect2/InventoryArea"]
+position = Vector2(159, 183)
+shape = SubResource("RectangleShape2D_ud1oa")
+
+[node name="InventoryBorders" type="Area2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect2"]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect2/InventoryBorders"]
+shape = SubResource("SegmentShape2D_luo7r")
+debug_color = Color(0.984314, 0, 0.329412, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect2/InventoryBorders"]
+position = Vector2(320, 0)
+shape = SubResource("SegmentShape2D_luo7r")
+debug_color = Color(0.984314, 0, 0.329412, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect2/InventoryBorders"]
+shape = SubResource("SegmentShape2D_3e8lp")
+debug_color = Color(0.984314, 0, 0.329412, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect2/InventoryBorders"]
+position = Vector2(0, 368)
+shape = SubResource("SegmentShape2D_3e8lp")
+debug_color = Color(0.984314, 0, 0.329412, 0.419608)
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(322, 370)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.129558, 0.129558, 0.129558, 1)
+
+[node name="InventoryArea" type="Area2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect3"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect3/InventoryArea"]
+position = Vector2(159, 183)
+shape = SubResource("RectangleShape2D_ud1oa")
+
+[node name="InventoryBorders" type="Area2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect3"]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect3/InventoryBorders"]
+shape = SubResource("SegmentShape2D_luo7r")
+debug_color = Color(0.984314, 0, 0.329412, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect3/InventoryBorders"]
+position = Vector2(320, 0)
+shape = SubResource("SegmentShape2D_luo7r")
+debug_color = Color(0.984314, 0, 0.329412, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect3/InventoryBorders"]
+shape = SubResource("SegmentShape2D_3e8lp")
+debug_color = Color(0.984314, 0, 0.329412, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ColorRect/ScrollContainer/MarginContainer/VBoxContainer/ColorRect3/InventoryBorders"]
+position = Vector2(0, 368)
+shape = SubResource("SegmentShape2D_3e8lp")
+debug_color = Color(0.984314, 0, 0.329412, 0.419608)
+
+[node name="Item" parent="ColorRect/ScrollContainer/MarginContainer" instance=ExtResource("1_lrbex")]
+position = Vector2(138, 133)
+
+[node name="Item2" parent="ColorRect/ScrollContainer/MarginContainer" instance=ExtResource("1_lrbex")]
+position = Vector2(146, 481)
