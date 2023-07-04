@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cdxo3n54nlxmk" path="res://inventory_container/inventory_container.tscn" id="1_kpjxh"]
 
 [node name="LootContainer" type="PanelContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 620.0
+offset_bottom = 858.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -26,5 +26,6 @@ text = "Loot"
 layout_mode = 2
 
 [node name="InventoryContainer" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_kpjxh")]
-custom_minimum_size = Vector2(400, 800)
 layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
