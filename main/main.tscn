@@ -8,7 +8,7 @@
 [node name="Inventory" parent="." instance=ExtResource("1_xyuj6")]
 
 [node name="Item" parent="." instance=ExtResource("2_oqc02")]
-position = Vector2(910, 208)
+position = Vector2(842, 149)
 
 [node name="Item2" parent="." instance=ExtResource("2_oqc02")]
-position = Vector2(944, 433)
+position = Vector2(845, 311)

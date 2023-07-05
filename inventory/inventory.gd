@@ -40,4 +40,5 @@ func _on_item_focus(item: Item) -> void:
 	current_item = item
 
 func _on_item_invalid_placement(item: Item) -> void:
+	current_item = item
 	_hold_item(item)
