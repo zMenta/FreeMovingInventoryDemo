@@ -20,17 +20,12 @@ func _set_state(new_state: States) -> void:
 			
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("mouse_left_click") and has_focus and not is_selected:
-		is_selected = true
-		state = States.VALID
-		return
-
 	if not is_selected:
+		if state == States.INVALID:
+			Globals.on_item_invalid_placement.emit(self)
 		return
-	global_position = get_global_mouse_position()
 
-	if Input.is_action_just_pressed("mouse_left_click") and state == States.VALID:
-		is_selected = false
+	global_position = lerp(global_position, get_global_mouse_position(), 25 * delta)
 	if Input.is_action_pressed("rotate_left"):
 		rotation_degrees += 100 * delta
 	elif Input.is_action_pressed("rotate_right"):
@@ -67,6 +62,7 @@ func _on_mouse_entered() -> void:
 		return
 	state = States.FOCUS
 	has_focus = true
+	Globals.on_item_focus.emit(self)
 
 func _on_mouse_exited() -> void:
 	has_focus = false
