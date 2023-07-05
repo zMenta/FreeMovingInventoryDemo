@@ -5,6 +5,7 @@
 [node name="PocketLayout" type="PanelContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -25,9 +26,11 @@ text = "Pocket
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 5
 
 [node name="InventoryContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_rfqds")]

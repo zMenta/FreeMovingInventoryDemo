@@ -5,6 +5,7 @@
 [node name="EquipmentLayout" type="PanelContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -24,6 +25,7 @@ text = "Equipment"
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="EquipmentSlot" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_x4cqg")]
 custom_minimum_size = Vector2(80, 80)

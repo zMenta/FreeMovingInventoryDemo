@@ -5,6 +5,7 @@
 [node name="Vest1" type="PanelContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -24,9 +25,11 @@ text = "Vest"
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="InventoryContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_nya8n")]
 custom_minimum_size = Vector2(100, 150)
@@ -42,6 +45,7 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="InventoryContainer4" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_nya8n")]
 custom_minimum_size = Vector2(100, 75)

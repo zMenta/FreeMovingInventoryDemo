@@ -5,6 +5,7 @@
 [node name="LootContainer" type="PanelContainer"]
 offset_right = 620.0
 offset_bottom = 858.0
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -24,6 +25,7 @@ text = "Loot"
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="InventoryContainer" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_kpjxh")]
 layout_mode = 2
