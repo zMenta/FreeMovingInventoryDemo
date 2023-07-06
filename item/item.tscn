@@ -1,8 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bb3sug6615rbi"]
+[gd_scene load_steps=8 format=3 uid="uid://bb3sug6615rbi"]
 
 [ext_resource type="Script" path="res://item/item.gd" id="1_dygcw"]
+[ext_resource type="Script" path="res://resources/item_type_resource.gd" id="2_1qaf0"]
 [ext_resource type="Texture2D" uid="uid://da28a7exmxujt" path="res://assets/hat.png" id="2_jfqwb"]
 [ext_resource type="Shader" path="res://shaders/blend_texture_with_color.gdshader" id="2_ruc7a"]
+
+[sub_resource type="Resource" id="Resource_ol87j"]
+resource_local_to_scene = true
+script = ExtResource("2_1qaf0")
+type = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rmf87"]
 resource_local_to_scene = true
@@ -17,6 +23,7 @@ size = Vector2(130, 130)
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_dygcw")
+type = SubResource("Resource_ol87j")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_rmf87")
