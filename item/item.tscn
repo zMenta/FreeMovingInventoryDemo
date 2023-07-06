@@ -1,7 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://ojpob7d0bs30"]
+[gd_scene load_steps=6 format=3 uid="uid://bb3sug6615rbi"]
 
-[ext_resource type="Script" path="res://item/item.gd" id="1_8elni"]
-[ext_resource type="Texture2D" uid="uid://2eh5rk3pu5d5" path="res://icon.svg" id="1_odahd"]
+[ext_resource type="Script" path="res://item/item.gd" id="1_dygcw"]
+[ext_resource type="Texture2D" uid="uid://da28a7exmxujt" path="res://assets/hat.png" id="2_jfqwb"]
+[ext_resource type="Shader" path="res://shaders/blend_texture_with_color.gdshader" id="2_ruc7a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rmf87"]
+resource_local_to_scene = true
+shader = ExtResource("2_ruc7a")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/color_intensity = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgvtw"]
 size = Vector2(130, 130)
@@ -9,36 +16,29 @@ size = Vector2(130, 130)
 [node name="Item" type="Area2D"]
 collision_layer = 4
 collision_mask = 15
-script = ExtResource("1_8elni")
+script = ExtResource("1_dygcw")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_rmf87")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
+offset_left = -66.0
+offset_top = -66.0
 offset_right = 64.0
-offset_bottom = 64.0
+offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("1_odahd")
-
-[node name="Filter" type="ColorRect" parent="TextureRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+texture = ExtResource("2_jfqwb")
+expand_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vgvtw")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="area_exited" from="." to="." method="_on_area_exited"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered" flags=18]
+[connection signal="area_exited" from="." to="." method="_on_area_exited" flags=18]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited" flags=18]

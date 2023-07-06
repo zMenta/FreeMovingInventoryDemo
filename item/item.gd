@@ -1,7 +1,7 @@
 extends Area2D
 class_name Item
 
-@onready var color_filter := $TextureRect/Filter
+@onready var texture_rect := $TextureRect
 
 enum States {VALID, INVALID, FOCUS}
 var state := States.VALID : set = _set_state
@@ -12,11 +12,14 @@ func _set_state(new_state: States) -> void:
 	state = new_state
 	match state:
 		States.VALID:
-			color_filter.color = Color(Color.WHITE, 0)
+			texture_rect.material.set_shader_parameter("color_intensity", 0.0)
+			texture_rect.material.set_shader_parameter("color", Color.WHITE)
 		States.INVALID:
-			color_filter.color = Color(Color.RED, 0.3)
+			texture_rect.material.set_shader_parameter("color_intensity", 0.25)
+			texture_rect.material.set_shader_parameter("color", Color.RED)
 		States.FOCUS:
-			color_filter.color = Color(Color.WHITE, 0.1)
+			texture_rect.material.set_shader_parameter("color_intensity", 0.08)
+			texture_rect.material.set_shader_parameter("color", Color.WHITE)
 			
 
 func _process(delta: float) -> void:

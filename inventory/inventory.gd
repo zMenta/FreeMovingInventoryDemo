@@ -25,15 +25,18 @@ func _process(_delta: float) -> void:
 func _place_item(item: Item) -> void:
 	item.is_selected = false
 	item.state = Item.States.FOCUS
+	held_item.z_index = 0
 	held_item = null
 
 
 func _hold_item(item: Item) -> void:
 	if held_item != null:
 		return
+
 	held_item = item
-	item.is_selected = true
-	item.state = Item.States.VALID
+	held_item.z_index = 10
+	held_item.is_selected = true
+	held_item.state = Item.States.VALID
 
 
 func _on_item_focus(item: Item) -> void:
