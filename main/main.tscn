@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2xei87g6pyt4"]
+[gd_scene load_steps=6 format=3 uid="uid://c2xei87g6pyt4"]
 
 [ext_resource type="PackedScene" uid="uid://g4orst357vmx" path="res://inventory/inventory.tscn" id="1_xyuj6"]
 [ext_resource type="PackedScene" uid="uid://bb3sug6615rbi" path="res://item/item.tscn" id="2_oqc02"]
+[ext_resource type="Script" path="res://resources/item_type_resource.gd" id="3_ceoxn"]
+
+[sub_resource type="Resource" id="Resource_rooky"]
+resource_local_to_scene = true
+script = ExtResource("3_ceoxn")
+type = 1
+
+[sub_resource type="Resource" id="Resource_j570l"]
+resource_local_to_scene = true
+script = ExtResource("3_ceoxn")
+type = 1
 
 [node name="Main" type="Node"]
 
@@ -9,6 +20,8 @@
 
 [node name="Item" parent="." instance=ExtResource("2_oqc02")]
 position = Vector2(842, 149)
+type = SubResource("Resource_rooky")
 
 [node name="Item2" parent="." instance=ExtResource("2_oqc02")]
 position = Vector2(845, 311)
+type = SubResource("Resource_j570l")

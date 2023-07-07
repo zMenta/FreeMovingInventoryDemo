@@ -1,5 +1,6 @@
 @tool
 extends ColorRect
+class_name Slot
 
 @export var item_type: ItemType
 
