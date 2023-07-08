@@ -1,12 +1,13 @@
 extends MarginContainer
 
-var held_item : Item
-var current_item : Item 
-var container_with_focus 
+var held_item: Item
+var current_item: Item 
+var current_slot: Slot
 
 func _ready() -> void:
 	Globals.on_item_focus.connect(_on_item_focus)
 	Globals.on_item_invalid_placement.connect(_on_item_invalid_placement)
+	Globals.on_slot_mouse_entered.connect(_on_slot_mouse_entered)
 
 
 func _process(_delta: float) -> void:
@@ -20,6 +21,9 @@ func _process(_delta: float) -> void:
 		return
 	if Input.is_action_just_pressed("mouse_left_click") and (held_item.state == Item.States.VALID or held_item.state == Item.States.FOCUS):
 		_place_item(held_item)
+
+	if Input.is_action_just_pressed("mouse_left_click") and current_slot != null:
+		print(current_slot.has_mouse_focus)
 
 
 func _place_item(item: Item) -> void:
@@ -45,3 +49,6 @@ func _on_item_focus(item: Item) -> void:
 func _on_item_invalid_placement(item: Item) -> void:
 	current_item = item
 	_hold_item(item)
+
+func _on_slot_mouse_entered(slot: Slot) -> void:
+	current_slot = slot

@@ -3,10 +3,10 @@ extends ColorRect
 class_name Slot
 
 @export var item_type: ItemType
-
 @export var normal_color: Color
 @export var focus_color: Color
 
+var has_mouse_focus := false
 
 func _ready() -> void:
 	Globals.on_item_unfocus.connect(_on_item_unfocu)
@@ -25,3 +25,13 @@ func _on_item_focus(item: Item) -> void:
 
 func _on_item_unfocu() -> void:
 	color = normal_color
+
+
+func _on_inventory_area_mouse_entered() -> void:
+	has_mouse_focus = true
+	Globals.on_slot_mouse_entered.emit(self)
+
+
+func _on_inventory_area_mouse_exited() -> void:
+	has_mouse_focus = false
+

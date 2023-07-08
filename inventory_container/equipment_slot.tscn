@@ -1,12 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c72f7nnnecppa"]
+[gd_scene load_steps=3 format=3 uid="uid://c72f7nnnecppa"]
 
 [ext_resource type="Script" path="res://inventory_container/equipment_slot.gd" id="1_raroj"]
-[ext_resource type="Script" path="res://resources/item_type_resource.gd" id="2_ufnab"]
-
-[sub_resource type="Resource" id="Resource_ityeu"]
-resource_local_to_scene = true
-script = ExtResource("2_ufnab")
-type = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6no0"]
 resource_local_to_scene = true
@@ -30,9 +24,8 @@ size_flags_vertical = 4
 mouse_filter = 2
 color = Color(0.129412, 0.129412, 0.129412, 1)
 script = ExtResource("1_raroj")
-item_type = SubResource("Resource_ityeu")
 normal_color = Color(0.129412, 0.129412, 0.129412, 1)
-focus_color = Color(0.254902, 0.254902, 0.254902, 1)
+focus_color = Color(0.258824, 0.258824, 0.258824, 1)
 
 [node name="InventoryArea" type="Area2D" parent="."]
 collision_layer = 16
@@ -43,3 +36,5 @@ position = Vector2(100, 75)
 shape = SubResource("RectangleShape2D_v6no0")
 
 [connection signal="resized" from="." to="." method="_on_resized" flags=18]
+[connection signal="mouse_entered" from="InventoryArea" to="." method="_on_inventory_area_mouse_entered"]
+[connection signal="mouse_exited" from="InventoryArea" to="." method="_on_inventory_area_mouse_exited"]
