@@ -3,7 +3,7 @@ class_name Item
 
 @onready var texture_rect := $TextureRect
 
-@export var type: ItemType
+@export var item_type: ItemType
 
 enum States {VALID, INVALID, FOCUS}
 var state := States.VALID : set = _set_state

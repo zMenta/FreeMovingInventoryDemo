@@ -20,7 +20,7 @@ func _on_resized() -> void:
 
 
 func _on_item_focus(item: Item) -> void:
-	if item_type.type == item.type.type:
+	if item_type.type == item.item_type.type:
 		color = focus_color
 
 func _on_item_unfocu() -> void:
