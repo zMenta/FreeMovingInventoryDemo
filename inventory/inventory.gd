@@ -23,7 +23,8 @@ func _process(_delta: float) -> void:
 		_place_item(held_item)
 
 	if Input.is_action_just_pressed("mouse_left_click") and current_slot != null:
-		print(current_slot.has_mouse_focus)
+		if current_slot.has_mouse_focus and current_slot.item_type.type == held_item.item_type.type:
+			print("item equipped!")
 
 
 func _place_item(item: Item) -> void:
