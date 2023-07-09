@@ -21,10 +21,12 @@ func _process(_delta: float) -> void:
 			if current_slot.has_mouse_focus and current_slot.item_type.type == held_item.item_type.type:
 				if current_slot.stored_item == null:
 					current_slot.stored_item = held_item.duplicate()
+					current_slot.texture_rect.texture = held_item.texture_rect.texture
 					held_item.queue_free()
 					held_item = null
 				else:
 					var temporary_item: Item = held_item.duplicate()
+					current_slot.texture_rect.texture = held_item.texture_rect.texture
 					held_item.queue_free()
 					held_item = null
 					add_child(current_slot.stored_item)
@@ -39,6 +41,7 @@ func _process(_delta: float) -> void:
 
 	elif Input.is_action_just_pressed("mouse_left_click") and current_slot != null:
 		if current_slot.has_mouse_focus and current_slot.stored_item != null:
+			current_slot.texture_rect.texture = null
 			add_child(current_slot.stored_item)
 			_hold_item(current_slot.stored_item)
 			held_item.rotation = 0
