@@ -75,3 +75,7 @@ func _on_item_invalid_placement(item: Item) -> void:
 
 func _on_slot_mouse_entered(slot: Slot) -> void:
 	current_slot = slot
+	if current_slot != null and held_item != null:
+		if current_slot.item_type.type == held_item.item_type.type:
+			held_item.state = Item.States.VALID
+
