@@ -3,6 +3,8 @@ class_name Item
 
 @onready var texture_rect := $TextureRect
 
+@export var item_type: ItemType
+
 enum States {VALID, INVALID, FOCUS}
 var state := States.VALID : set = _set_state
 var is_selected := false
@@ -68,6 +70,7 @@ func _on_mouse_entered() -> void:
 	Globals.on_item_focus.emit(self)
 
 func _on_mouse_exited() -> void:
+	Globals.on_item_unfocus.emit()
 	has_focus = false
 	_validate_area()
 

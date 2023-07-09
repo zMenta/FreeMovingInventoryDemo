@@ -22,8 +22,10 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
-color = Color(0.129558, 0.129558, 0.129558, 1)
+color = Color(0.129412, 0.129412, 0.129412, 1)
 script = ExtResource("1_raroj")
+normal_color = Color(0.129412, 0.129412, 0.129412, 1)
+focus_color = Color(0.258824, 0.258824, 0.258824, 1)
 
 [node name="InventoryArea" type="Area2D" parent="."]
 collision_layer = 16
@@ -33,4 +35,16 @@ collision_mask = 4
 position = Vector2(100, 75)
 shape = SubResource("RectangleShape2D_v6no0")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 5
+
 [connection signal="resized" from="." to="." method="_on_resized" flags=18]
+[connection signal="mouse_entered" from="InventoryArea" to="." method="_on_inventory_area_mouse_entered"]
+[connection signal="mouse_exited" from="InventoryArea" to="." method="_on_inventory_area_mouse_exited"]

@@ -1,8 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckt6byoj40ysp"]
+[gd_scene load_steps=7 format=3 uid="uid://ckt6byoj40ysp"]
 
 [ext_resource type="PackedScene" uid="uid://c72f7nnnecppa" path="res://inventory_container/equipment_slot.tscn" id="1_x4cqg"]
+[ext_resource type="Script" path="res://resources/item_type_resource.gd" id="2_o5rpm"]
+
+[sub_resource type="Resource" id="Resource_jf6y0"]
+resource_local_to_scene = true
+script = ExtResource("2_o5rpm")
+type = 1
+
+[sub_resource type="Resource" id="Resource_hbde8"]
+resource_local_to_scene = true
+script = ExtResource("2_o5rpm")
+type = 0
+
+[sub_resource type="Resource" id="Resource_4fsc2"]
+resource_local_to_scene = true
+script = ExtResource("2_o5rpm")
+type = 0
+
+[sub_resource type="Resource" id="Resource_k0tul"]
+resource_local_to_scene = true
+script = ExtResource("2_o5rpm")
+type = 0
 
 [node name="EquipmentLayout" type="PanelContainer"]
+custom_minimum_size = Vector2(400, 400)
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
@@ -27,21 +49,25 @@ text = "Equipment"
 layout_mode = 2
 mouse_filter = 2
 
-[node name="EquipmentSlot" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_x4cqg")]
-custom_minimum_size = Vector2(80, 80)
+[node name="HeadSlot" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_x4cqg")]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+item_type = SubResource("Resource_jf6y0")
 
-[node name="EquipmentSlot2" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_x4cqg")]
-custom_minimum_size = Vector2(100, 120)
+[node name="BodySlot" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_x4cqg")]
+custom_minimum_size = Vector2(150, 200)
 layout_mode = 2
+item_type = SubResource("Resource_hbde8")
 
 [node name="Padding" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="EquipmentSlot3" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_x4cqg")]
-custom_minimum_size = Vector2(180, 80)
+[node name="PrimarySlot" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_x4cqg")]
+custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
+item_type = SubResource("Resource_4fsc2")
 
-[node name="EquipmentSlot4" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_x4cqg")]
-custom_minimum_size = Vector2(80, 80)
+[node name="SecondarySlot" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_x4cqg")]
+custom_minimum_size = Vector2(120, 100)
 layout_mode = 2
+item_type = SubResource("Resource_k0tul")
