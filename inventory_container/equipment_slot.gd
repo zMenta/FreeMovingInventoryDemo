@@ -7,6 +7,14 @@ class_name Slot
 @export var focus_color: Color
 
 var has_mouse_focus := false
+var stored_item: Item : set = _set_stored_item
+
+func _set_stored_item(new_item: Item) -> void:
+	stored_item = new_item
+	if stored_item != null:
+		$Label.text = stored_item.name
+	else:
+		$Label.text = "SLOT"
 
 func _ready() -> void:
 	Globals.on_item_unfocus.connect(_on_item_unfocu)

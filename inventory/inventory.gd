@@ -11,20 +11,30 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if current_item == null:
-		return
-	if Input.is_action_just_pressed("mouse_left_click") and not current_item.is_selected and held_item == null and current_item.has_focus:
-		_hold_item(current_item)
-		return
+	if current_item != null:
+		if Input.is_action_just_pressed("mouse_left_click") and not current_item.is_selected and held_item == null and current_item.has_focus:
+			_hold_item(current_item)
+			return
 
-	if held_item == null:
-		return
-	if Input.is_action_just_pressed("mouse_left_click") and (held_item.state == Item.States.VALID or held_item.state == Item.States.FOCUS):
-		_place_item(held_item)
+	if held_item != null:
+		if Input.is_action_just_pressed("mouse_left_click") and (held_item.state == Item.States.VALID or held_item.state == Item.States.FOCUS):
+			_place_item(held_item)
 
-	if Input.is_action_just_pressed("mouse_left_click") and current_slot != null:
-		if current_slot.has_mouse_focus and current_slot.item_type.type == held_item.item_type.type:
-			print("item equipped!")
+		if Input.is_action_just_pressed("mouse_left_click") and current_slot != null:
+			if current_slot.has_mouse_focus and current_slot.item_type.type == held_item.item_type.type:
+				current_slot.stored_item = held_item.duplicate()
+				held_item.queue_free()
+				held_item = null
+				return
+
+	elif Input.is_action_just_pressed("mouse_left_click") and current_slot != null:
+		if current_slot.has_mouse_focus and current_slot.stored_item != null:
+			print("item picked up")
+			add_child(current_slot.stored_item)
+			_hold_item(current_slot.stored_item)
+			held_item.rotation = 0
+			current_slot.stored_item = null
+			
 
 
 func _place_item(item: Item) -> void:
