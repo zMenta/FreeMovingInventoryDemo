@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://ckt6byoj40ysp" path="res://equipment/equipment_layout.tscn" id="1_n3ywu"]
 [ext_resource type="Script" path="res://inventory/inventory.gd" id="1_seni0"]
-[ext_resource type="PackedScene" uid="uid://dtmnl8oh8kbnv" path="res://equipment/vests/vest_layout_1.tscn" id="2_wygkf"]
-[ext_resource type="PackedScene" uid="uid://cdt1nc5m5edfv" path="res://equipment/pocket_layout.tscn" id="3_glbwo"]
-[ext_resource type="PackedScene" uid="uid://c0g82r5s426ck" path="res://equipment/backpacks/backpack_layout_1.tscn" id="4_bb5fg"]
-[ext_resource type="PackedScene" uid="uid://bl1fy6yj1bgyq" path="res://loot_container.tscn" id="5_e88ul"]
+[ext_resource type="PackedScene" uid="uid://pg4s7ty5iylw" path="res://equipment/vests/vest_layout_2.tscn" id="3_p84ro"]
+[ext_resource type="PackedScene" uid="uid://bxm375fiwe3k" path="res://equipment/pocket_layout_2.tscn" id="4_ekbgp"]
+[ext_resource type="PackedScene" uid="uid://47rd1ptebgql" path="res://equipment/backpacks/backpack_layout_2.tscn" id="5_rwlxl"]
+[ext_resource type="PackedScene" uid="uid://buqysncxkmm00" path="res://loot_layout_2.tscn" id="6_4ac5g"]
 
 [node name="Inventory" type="MarginContainer"]
 anchors_preset = 15
@@ -44,13 +44,13 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 20
 
-[node name="Vest1" parent="HBoxContainer/InventoryContainer/VBoxContainer" instance=ExtResource("2_wygkf")]
+[node name="VestLayout2" parent="HBoxContainer/InventoryContainer/VBoxContainer" instance=ExtResource("3_p84ro")]
 layout_mode = 2
 
-[node name="PocketLayout" parent="HBoxContainer/InventoryContainer/VBoxContainer" instance=ExtResource("3_glbwo")]
+[node name="PocketLayout2" parent="HBoxContainer/InventoryContainer/VBoxContainer" instance=ExtResource("4_ekbgp")]
 layout_mode = 2
 
-[node name="BackPack1" parent="HBoxContainer/InventoryContainer/VBoxContainer" instance=ExtResource("4_bb5fg")]
+[node name="BackpackLayout2" parent="HBoxContainer/InventoryContainer/VBoxContainer" instance=ExtResource("5_rwlxl")]
 layout_mode = 2
 
 [node name="LootContainer" type="ScrollContainer" parent="HBoxContainer"]
@@ -65,6 +65,5 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="LootContainer" parent="HBoxContainer/LootContainer/VBoxContainer" instance=ExtResource("5_e88ul")]
+[node name="LootLayout2" parent="HBoxContainer/LootContainer/VBoxContainer" instance=ExtResource("6_4ac5g")]
 layout_mode = 2
-size_flags_vertical = 3
