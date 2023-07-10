@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://47rd1ptebgql"]
+
+[ext_resource type="PackedScene" uid="uid://cunoyrikq72f1" path="res://inventory_container/inventory_layout.tscn" id="1_uva5p"]
+[ext_resource type="PackedScene" uid="uid://cdxo3n54nlxmk" path="res://inventory_container/inventory_container.tscn" id="2_icxd4"]
+
+[node name="BackpackLayout2" instance=ExtResource("1_uva5p")]
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer" index="2"]
+layout_mode = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 3
+
+[node name="InventoryContainer" parent="MarginContainer/VBoxContainer/GridContainer" index="0" instance=ExtResource("2_icxd4")]
+custom_minimum_size = Vector2(80, 150)
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 8
+
+[node name="InventoryContainer2" parent="MarginContainer/VBoxContainer/GridContainer" index="1" instance=ExtResource("2_icxd4")]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+
+[node name="InventoryContainer3" parent="MarginContainer/VBoxContainer/GridContainer" index="2" instance=ExtResource("2_icxd4")]
+custom_minimum_size = Vector2(80, 150)
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 8

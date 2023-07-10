@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://buqysncxkmm00"]
+
+[ext_resource type="PackedScene" uid="uid://cunoyrikq72f1" path="res://inventory_container/inventory_layout.tscn" id="1_tww82"]
+[ext_resource type="PackedScene" uid="uid://cdxo3n54nlxmk" path="res://inventory_container/inventory_container.tscn" id="2_a0b2i"]
+
+[node name="LootLayout2" instance=ExtResource("1_tww82")]
+
+[node name="Label" parent="MarginContainer/VBoxContainer" index="0"]
+text = "Loot
+"
+
+[node name="InventoryContainer" parent="MarginContainer/VBoxContainer" index="2" instance=ExtResource("2_a0b2i")]
+custom_minimum_size = Vector2(400, 600)
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3

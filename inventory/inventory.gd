@@ -3,12 +3,13 @@ extends MarginContainer
 var held_item: Item
 var current_item: Item 
 var current_slot: Slot
+var current_container: PanelContainer
 
 func _ready() -> void:
 	Globals.on_item_focus.connect(_on_item_focus)
 	Globals.on_item_invalid_placement.connect(_on_item_invalid_placement)
 	Globals.on_slot_mouse_entered.connect(_on_slot_mouse_entered)
-
+	Globals.on_container_mouse_entered.connect(_on_container_mouse_entered)
 
 func _process(_delta: float) -> void:
 	if current_item != null:
@@ -84,5 +85,7 @@ func _on_slot_mouse_entered(slot: Slot) -> void:
 	current_slot = slot
 	_check_slot_is_valid()
 
-
+func _on_container_mouse_entered(container: PanelContainer) -> void:
+	current_container = container
+	print(current_container)
 
