@@ -39,7 +39,7 @@ func _process(_delta: float) -> void:
 					return
 
 		if Input.is_action_just_pressed("mouse_left_click") and (held_item.state == Item.States.VALID or held_item.state == Item.States.FOCUS):
-			_place_item(held_item)
+			_place_item()
 			return
 
 	elif Input.is_action_just_pressed("mouse_left_click") and current_slot != null:
@@ -49,21 +49,21 @@ func _process(_delta: float) -> void:
 			_hold_item(current_slot.stored_item)
 			held_item.rotation = 0
 			current_slot.stored_item = null
-			
 
 
-func _place_item(item: Item) -> void:
-	item.is_selected = false
-	item.state = Item.States.FOCUS
+func _place_item() -> void:
+	held_item.is_selected = false
 	held_item.z_index = 0
+	held_item.reparent(current_container)
+	held_item.state = Item.States.VALID
 	held_item = null
-
 
 func _hold_item(item: Item) -> void:
 	if held_item != null:
 		return
 
 	held_item = item
+	held_item.reparent(self)
 	held_item.z_index = 10
 	held_item.is_selected = true
 	held_item.state = Item.States.VALID
@@ -87,5 +87,4 @@ func _on_slot_mouse_entered(slot: Slot) -> void:
 
 func _on_container_mouse_entered(container: PanelContainer) -> void:
 	current_container = container
-	print(current_container)
 
