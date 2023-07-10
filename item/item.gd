@@ -74,3 +74,8 @@ func _on_mouse_exited() -> void:
 	has_focus = false
 	_validate_area()
 
+func _on_tree_entered() -> void:
+	await get_tree().create_timer(0.1).timeout
+	if texture_rect.get_rect().has_point(get_local_mouse_position()):
+		_on_mouse_entered()
+
