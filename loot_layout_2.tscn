@@ -1,9 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://buqysncxkmm00"]
+[gd_scene load_steps=9 format=3 uid="uid://buqysncxkmm00"]
 
 [ext_resource type="PackedScene" uid="uid://cunoyrikq72f1" path="res://inventory_container/inventory_layout.tscn" id="1_tww82"]
 [ext_resource type="PackedScene" uid="uid://cdxo3n54nlxmk" path="res://inventory_container/inventory_container.tscn" id="2_a0b2i"]
-[ext_resource type="PackedScene" uid="uid://bb3sug6615rbi" path="res://item/item.tscn" id="3_h82r3"]
-[ext_resource type="PackedScene" uid="uid://brryupgqahv0b" path="res://item/items/match.tscn" id="4_0344r"]
+[ext_resource type="PackedScene" uid="uid://dwn14vnfkil16" path="res://item/items/match.tscn" id="3_2s0uh"]
+[ext_resource type="PackedScene" uid="uid://bb3sug6615rbi" path="res://item/base_item.tscn" id="3_h82r3"]
+[ext_resource type="Script" path="res://resources/item_type_resource.gd" id="4_0q1mq"]
+
+[sub_resource type="Resource" id="Resource_ka1gj"]
+resource_local_to_scene = true
+script = ExtResource("4_0q1mq")
+type = 1
+
+[sub_resource type="Resource" id="Resource_csrkc"]
+resource_local_to_scene = true
+script = ExtResource("4_0q1mq")
+type = 1
+
+[sub_resource type="Resource" id="Resource_15oww"]
+resource_local_to_scene = true
+script = ExtResource("4_0q1mq")
+type = 0
 
 [node name="LootLayout2" instance=ExtResource("1_tww82")]
 
@@ -18,16 +34,21 @@ size_flags_horizontal = 1
 size_flags_vertical = 3
 
 [node name="Item" parent="." index="1" instance=ExtResource("3_h82r3")]
-position = Vector2(98, 371)
+position = Vector2(120, 440)
+item_type = SubResource("Resource_ka1gj")
 
 [node name="Item2" parent="." index="2" instance=ExtResource("3_h82r3")]
-position = Vector2(113, 141)
+position = Vector2(283, 324)
+item_type = SubResource("Resource_csrkc")
 
-[node name="Match" parent="." index="3" instance=ExtResource("4_0344r")]
-position = Vector2(268, 205)
+[node name="Match" parent="." index="3" instance=ExtResource("3_2s0uh")]
+position = Vector2(95, 281)
+item_type = SubResource("Resource_15oww")
 
-[node name="Match2" parent="." index="4" instance=ExtResource("4_0344r")]
-position = Vector2(217, 335)
+[node name="Match2" parent="." index="4" instance=ExtResource("3_2s0uh")]
+position = Vector2(205, 149)
+item_type = SubResource("Resource_15oww")
 
-[node name="Match3" parent="." index="5" instance=ExtResource("4_0344r")]
-position = Vector2(310, 371)
+[node name="Match3" parent="." index="5" instance=ExtResource("3_2s0uh")]
+position = Vector2(64, 138)
+item_type = SubResource("Resource_15oww")

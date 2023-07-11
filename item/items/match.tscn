@@ -1,56 +1,37 @@
-[gd_scene load_steps=8 format=3 uid="uid://brryupgqahv0b"]
+[gd_scene load_steps=8 format=3 uid="uid://dwn14vnfkil16"]
 
-[ext_resource type="Script" path="res://item/item.gd" id="1_5dvqt"]
-[ext_resource type="Script" path="res://resources/item_type_resource.gd" id="2_jlcpd"]
-[ext_resource type="Shader" path="res://shaders/blend_texture_with_color.gdshader" id="2_lehmn"]
-[ext_resource type="Texture2D" uid="uid://be48citpq4f4q" path="res://assets/match.png" id="3_ucgw1"]
+[ext_resource type="PackedScene" uid="uid://bb3sug6615rbi" path="res://item/base_item.tscn" id="1_esubv"]
+[ext_resource type="Script" path="res://resources/item_type_resource.gd" id="2_l1nah"]
+[ext_resource type="Shader" path="res://shaders/blend_texture_with_color.gdshader" id="3_vlsfd"]
+[ext_resource type="Texture2D" uid="uid://be48citpq4f4q" path="res://assets/match.png" id="4_yyulr"]
 
-[sub_resource type="Resource" id="Resource_ubjwy"]
+[sub_resource type="Resource" id="Resource_xvfuh"]
 resource_local_to_scene = true
-script = ExtResource("2_jlcpd")
+script = ExtResource("2_l1nah")
 type = 0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ufoqi"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a4f2o"]
 resource_local_to_scene = true
-shader = ExtResource("2_lehmn")
+shader = ExtResource("3_vlsfd")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/color_intensity = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0s2a"]
-size = Vector2(14, 81)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ods2t"]
+resource_local_to_scene = true
+size = Vector2(22, 94)
 
-[node name="Match" type="Area2D"]
-collision_layer = 4
-collision_mask = 15
-script = ExtResource("1_5dvqt")
-item_type = SubResource("Resource_ubjwy")
+[node name="Match" instance=ExtResource("1_esubv")]
+item_type = SubResource("Resource_xvfuh")
 is_stackable = true
-max_stacks = 5
+max_stack = 5
 
-[node name="TextureRect" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_ufoqi")
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -11.0
-offset_top = -39.0
-offset_right = 9.0
-offset_bottom = 41.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("3_ucgw1")
-expand_mode = 1
-stretch_mode = 5
+[node name="TextureRect" parent="." index="0"]
+material = SubResource("ShaderMaterial_a4f2o")
+offset_left = -15.0
+offset_top = -45.0
+offset_right = 13.0
+offset_bottom = 45.0
+texture = ExtResource("4_yyulr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0.5)
-shape = SubResource("RectangleShape2D_t0s2a")
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered" flags=18]
-[connection signal="area_exited" from="." to="." method="_on_area_exited" flags=18]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited" flags=18]
-[connection signal="tree_entered" from="." to="." method="_on_tree_entered" flags=18]
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_ods2t")
