@@ -4,6 +4,8 @@ class_name Item
 @onready var texture_rect := $TextureRect
 
 @export var item_type: ItemType
+@export var is_stackable := false
+@export_range(1, 1000, 1) var max_stacks : int = 1
 
 enum States {VALID, INVALID, FOCUS}
 var state := States.VALID : set = _set_state

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://buqysncxkmm00"]
+[gd_scene load_steps=5 format=3 uid="uid://buqysncxkmm00"]
 
 [ext_resource type="PackedScene" uid="uid://cunoyrikq72f1" path="res://inventory_container/inventory_layout.tscn" id="1_tww82"]
 [ext_resource type="PackedScene" uid="uid://cdxo3n54nlxmk" path="res://inventory_container/inventory_container.tscn" id="2_a0b2i"]
 [ext_resource type="PackedScene" uid="uid://bb3sug6615rbi" path="res://item/item.tscn" id="3_h82r3"]
+[ext_resource type="PackedScene" uid="uid://brryupgqahv0b" path="res://item/items/match.tscn" id="4_0344r"]
 
 [node name="LootLayout2" instance=ExtResource("1_tww82")]
 
@@ -21,3 +22,12 @@ position = Vector2(98, 371)
 
 [node name="Item2" parent="." index="2" instance=ExtResource("3_h82r3")]
 position = Vector2(113, 141)
+
+[node name="Match" parent="." index="3" instance=ExtResource("4_0344r")]
+position = Vector2(268, 205)
+
+[node name="Match2" parent="." index="4" instance=ExtResource("4_0344r")]
+position = Vector2(217, 335)
+
+[node name="Match3" parent="." index="5" instance=ExtResource("4_0344r")]
+position = Vector2(310, 371)
