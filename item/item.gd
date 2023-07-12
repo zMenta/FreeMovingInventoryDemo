@@ -79,7 +79,7 @@ func _on_area_exited(_area:Area2D) -> void:
 	_validate_area()
 
 func _on_mouse_entered() -> void:
-	if state == States.INVALID:
+	if state == States.INVALID or is_selected:
 		return
 	state = States.FOCUS
 	has_focus = true

@@ -38,7 +38,7 @@ func _process(_delta: float) -> void:
 						current_slot.stored_item = temporary_item
 					return
 
-		if Input.is_action_just_pressed("mouse_left_click") and (held_item.state == Item.States.VALID or held_item.state == Item.States.FOCUS):
+		if Input.is_action_just_pressed("mouse_left_click") and held_item.state == Item.States.VALID:
 			_place_item()
 			return
 
