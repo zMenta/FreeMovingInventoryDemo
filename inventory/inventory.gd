@@ -17,6 +17,7 @@ func _process(_delta: float) -> void:
 			_hold_item(current_item)
 			return
 
+	# Equipment Slots
 	if held_item != null:
 		if current_slot != null:
 			_check_slot_is_valid()
@@ -38,9 +39,14 @@ func _process(_delta: float) -> void:
 						current_slot.stored_item = temporary_item
 					return
 
-		if Input.is_action_just_pressed("mouse_left_click") and held_item.state == Item.States.VALID:
-			_place_item()
-			return
+		if Input.is_action_just_pressed("mouse_left_click"):
+			if held_item.state == Item.States.VALID:
+				_place_item()
+				return
+			elif held_item.state == Item.States.INTERACT:
+				var stack_item: Item = held_item.get_overlapping_stack_item()
+				stack_item.current_stack += held_item.current_stack
+				return
 
 	elif Input.is_action_just_pressed("mouse_left_click") and current_slot != null:
 		if current_slot.has_mouse_focus and current_slot.stored_item != null:

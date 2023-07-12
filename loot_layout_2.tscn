@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://buqysncxkmm00"]
+[gd_scene load_steps=11 format=3 uid="uid://buqysncxkmm00"]
 
 [ext_resource type="PackedScene" uid="uid://cunoyrikq72f1" path="res://inventory_container/inventory_layout.tscn" id="1_tww82"]
 [ext_resource type="PackedScene" uid="uid://cdxo3n54nlxmk" path="res://inventory_container/inventory_container.tscn" id="2_a0b2i"]
@@ -6,17 +6,27 @@
 [ext_resource type="PackedScene" uid="uid://bb3sug6615rbi" path="res://item/base_item.tscn" id="3_h82r3"]
 [ext_resource type="Script" path="res://resources/item_type_resource.gd" id="4_0q1mq"]
 
-[sub_resource type="Resource" id="Resource_ka1gj"]
+[sub_resource type="Resource" id="Resource_ykv8j"]
 resource_local_to_scene = true
 script = ExtResource("4_0q1mq")
 type = 1
 
-[sub_resource type="Resource" id="Resource_csrkc"]
+[sub_resource type="Resource" id="Resource_l6pdg"]
 resource_local_to_scene = true
 script = ExtResource("4_0q1mq")
 type = 1
 
-[sub_resource type="Resource" id="Resource_15oww"]
+[sub_resource type="Resource" id="Resource_i11a2"]
+resource_local_to_scene = true
+script = ExtResource("4_0q1mq")
+type = 0
+
+[sub_resource type="Resource" id="Resource_hugo6"]
+resource_local_to_scene = true
+script = ExtResource("4_0q1mq")
+type = 0
+
+[sub_resource type="Resource" id="Resource_f1j3t"]
 resource_local_to_scene = true
 script = ExtResource("4_0q1mq")
 type = 0
@@ -35,20 +45,20 @@ size_flags_vertical = 3
 
 [node name="Item" parent="." index="1" instance=ExtResource("3_h82r3")]
 position = Vector2(120, 440)
-item_type = SubResource("Resource_ka1gj")
+item_type = SubResource("Resource_ykv8j")
 
 [node name="Item2" parent="." index="2" instance=ExtResource("3_h82r3")]
 position = Vector2(283, 324)
-item_type = SubResource("Resource_csrkc")
+item_type = SubResource("Resource_l6pdg")
 
 [node name="Match" parent="." index="3" instance=ExtResource("3_2s0uh")]
 position = Vector2(95, 281)
-item_type = SubResource("Resource_15oww")
+item_type = SubResource("Resource_i11a2")
 
 [node name="Match2" parent="." index="4" instance=ExtResource("3_2s0uh")]
 position = Vector2(205, 149)
-item_type = SubResource("Resource_15oww")
+item_type = SubResource("Resource_hugo6")
 
 [node name="Match3" parent="." index="5" instance=ExtResource("3_2s0uh")]
 position = Vector2(64, 138)
-item_type = SubResource("Resource_15oww")
+item_type = SubResource("Resource_f1j3t")
