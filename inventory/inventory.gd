@@ -46,6 +46,10 @@ func _process(_delta: float) -> void:
 			elif held_item.state == Item.States.INTERACT:
 				var stack_item: Item = held_item.get_overlapping_stack_item()
 				stack_item.current_stack += held_item.current_stack
+				held_item.queue_free()
+				held_item = null
+				await get_tree().create_timer(0.01).timeout	#Hack otherwise item will be in INTERACT state.
+				stack_item.state = Item.States.VALID
 				return
 
 	elif Input.is_action_just_pressed("mouse_left_click") and current_slot != null:
