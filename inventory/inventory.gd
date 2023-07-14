@@ -13,9 +13,26 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if current_item != null:
-		if Input.is_action_just_pressed("mouse_left_click") and not current_item.is_selected and held_item == null and current_item.has_focus:
-			_hold_item(current_item)
-			return
+		if not current_item.is_selected and held_item == null and current_item.has_focus:
+			if Input.is_action_just_pressed("shift+m1") and current_item.is_stackable:
+				if current_item.current_stack == 1:
+					_hold_item(current_item)
+				else:
+					var remainer: int = current_item.current_stack % 2
+					var half_stack: int = roundi(current_item.current_stack / 2.0)
+					var stack_to_hold: int = half_stack
+					if remainer != 0: stack_to_hold -= remainer
+					current_item.current_stack = half_stack
+					var item_scene: PackedScene = load(current_item.scene_file_path)
+					var new_item: Item = item_scene.instantiate()
+					add_child(new_item)
+					new_item.global_position = get_global_mouse_position()
+					new_item.current_stack = stack_to_hold
+					_hold_item(new_item)
+				return
+			if Input.is_action_just_pressed("mouse_left_click"):
+				_hold_item(current_item)
+				return
 
 	# Equipment Slots
 	if held_item != null:
