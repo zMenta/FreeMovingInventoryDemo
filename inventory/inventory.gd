@@ -62,6 +62,12 @@ func _process(_delta: float) -> void:
 				return
 			elif held_item.state == Item.States.INTERACT:
 				var stack_item: Item = held_item.get_overlapping_stack_item()
+				if stack_item.current_stack >= stack_item.max_stack: return
+				if stack_item.current_stack + held_item.current_stack > stack_item.max_stack:
+					held_item.current_stack = (held_item.current_stack + stack_item.current_stack) - stack_item.max_stack
+					stack_item.current_stack = stack_item.max_stack
+					return
+
 				stack_item.current_stack += held_item.current_stack
 				held_item.queue_free()
 				held_item = null
