@@ -28,6 +28,7 @@ func _process(_delta: float) -> void:
 					add_child(new_item)
 					new_item.global_position = get_global_mouse_position()
 					new_item.current_stack = stack_to_hold
+					new_item.rotation = current_item.rotation
 					_hold_item(new_item)
 				return
 			if Input.is_action_just_pressed("mouse_left_click"):
