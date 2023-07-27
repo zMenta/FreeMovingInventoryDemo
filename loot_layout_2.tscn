@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://buqysncxkmm00"]
+[gd_scene load_steps=15 format=3 uid="uid://buqysncxkmm00"]
 
 [ext_resource type="PackedScene" uid="uid://cunoyrikq72f1" path="res://inventory_container/inventory_layout.tscn" id="1_tww82"]
 [ext_resource type="PackedScene" uid="uid://cdxo3n54nlxmk" path="res://inventory_container/inventory_container.tscn" id="2_a0b2i"]
@@ -6,27 +6,47 @@
 [ext_resource type="PackedScene" uid="uid://bb3sug6615rbi" path="res://item/base_item.tscn" id="3_h82r3"]
 [ext_resource type="Script" path="res://resources/item_type_resource.gd" id="4_0q1mq"]
 
-[sub_resource type="Resource" id="Resource_ykv8j"]
+[sub_resource type="Resource" id="Resource_0fhwv"]
 resource_local_to_scene = true
 script = ExtResource("4_0q1mq")
 type = 1
 
-[sub_resource type="Resource" id="Resource_l6pdg"]
+[sub_resource type="Resource" id="Resource_y3u7d"]
 resource_local_to_scene = true
 script = ExtResource("4_0q1mq")
 type = 1
 
-[sub_resource type="Resource" id="Resource_i11a2"]
+[sub_resource type="Resource" id="Resource_cecfh"]
 resource_local_to_scene = true
 script = ExtResource("4_0q1mq")
 type = 0
 
-[sub_resource type="Resource" id="Resource_hugo6"]
+[sub_resource type="Resource" id="Resource_s5cak"]
 resource_local_to_scene = true
 script = ExtResource("4_0q1mq")
 type = 0
 
-[sub_resource type="Resource" id="Resource_f1j3t"]
+[sub_resource type="Resource" id="Resource_sbsje"]
+resource_local_to_scene = true
+script = ExtResource("4_0q1mq")
+type = 0
+
+[sub_resource type="Resource" id="Resource_2p1c1"]
+resource_local_to_scene = true
+script = ExtResource("4_0q1mq")
+type = 0
+
+[sub_resource type="Resource" id="Resource_54jjg"]
+resource_local_to_scene = true
+script = ExtResource("4_0q1mq")
+type = 0
+
+[sub_resource type="Resource" id="Resource_fygwd"]
+resource_local_to_scene = true
+script = ExtResource("4_0q1mq")
+type = 0
+
+[sub_resource type="Resource" id="Resource_e6bcc"]
 resource_local_to_scene = true
 script = ExtResource("4_0q1mq")
 type = 0
@@ -45,20 +65,36 @@ size_flags_vertical = 3
 
 [node name="Item" parent="." index="1" instance=ExtResource("3_h82r3")]
 position = Vector2(120, 440)
-item_type = SubResource("Resource_ykv8j")
+item_type = SubResource("Resource_0fhwv")
 
 [node name="Item2" parent="." index="2" instance=ExtResource("3_h82r3")]
 position = Vector2(283, 324)
-item_type = SubResource("Resource_l6pdg")
+item_type = SubResource("Resource_y3u7d")
 
 [node name="Match" parent="." index="3" instance=ExtResource("3_2s0uh")]
 position = Vector2(95, 281)
-item_type = SubResource("Resource_i11a2")
+item_type = SubResource("Resource_cecfh")
 
 [node name="Match2" parent="." index="4" instance=ExtResource("3_2s0uh")]
 position = Vector2(205, 149)
-item_type = SubResource("Resource_hugo6")
+item_type = SubResource("Resource_s5cak")
 
 [node name="Match3" parent="." index="5" instance=ExtResource("3_2s0uh")]
 position = Vector2(64, 138)
-item_type = SubResource("Resource_f1j3t")
+item_type = SubResource("Resource_sbsje")
+
+[node name="Match4" parent="." index="6" instance=ExtResource("3_2s0uh")]
+position = Vector2(99, 138)
+item_type = SubResource("Resource_2p1c1")
+
+[node name="Match5" parent="." index="7" instance=ExtResource("3_2s0uh")]
+position = Vector2(134, 139)
+item_type = SubResource("Resource_54jjg")
+
+[node name="Match6" parent="." index="8" instance=ExtResource("3_2s0uh")]
+position = Vector2(169, 138)
+item_type = SubResource("Resource_fygwd")
+
+[node name="Match7" parent="." index="9" instance=ExtResource("3_2s0uh")]
+position = Vector2(233, 147)
+item_type = SubResource("Resource_e6bcc")
