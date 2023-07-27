@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwn14vnfkil16"]
+
+[ext_resource type="PackedScene" uid="uid://bb3sug6615rbi" path="res://item/base_item.tscn" id="1_esubv"]
+[ext_resource type="Script" path="res://resources/item_type_resource.gd" id="2_l1nah"]
+[ext_resource type="Shader" path="res://shaders/blend_texture_with_color.gdshader" id="3_vlsfd"]
+[ext_resource type="Texture2D" uid="uid://be48citpq4f4q" path="res://assets/match.png" id="4_yyulr"]
+
+[sub_resource type="Resource" id="Resource_xvfuh"]
+resource_local_to_scene = true
+script = ExtResource("2_l1nah")
+type = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a4f2o"]
+resource_local_to_scene = true
+shader = ExtResource("3_vlsfd")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/color_intensity = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ods2t"]
+resource_local_to_scene = true
+size = Vector2(22, 94)
+
+[node name="Match" instance=ExtResource("1_esubv")]
+item_type = SubResource("Resource_xvfuh")
+is_stackable = true
+max_stack = 5
+
+[node name="TextureRect" parent="." index="0"]
+material = SubResource("ShaderMaterial_a4f2o")
+offset_left = -15.0
+offset_top = -45.0
+offset_right = 13.0
+offset_bottom = 45.0
+texture = ExtResource("4_yyulr")
+
+[node name="StackCountLabel" parent="TextureRect" index="0"]
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_ods2t")

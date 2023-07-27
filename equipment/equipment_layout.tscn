@@ -11,17 +11,17 @@ type = 1
 [sub_resource type="Resource" id="Resource_hbde8"]
 resource_local_to_scene = true
 script = ExtResource("2_o5rpm")
-type = 0
+type = 2
 
 [sub_resource type="Resource" id="Resource_4fsc2"]
 resource_local_to_scene = true
 script = ExtResource("2_o5rpm")
-type = 0
+type = 2
 
 [sub_resource type="Resource" id="Resource_k0tul"]
 resource_local_to_scene = true
 script = ExtResource("2_o5rpm")
-type = 0
+type = 2
 
 [node name="EquipmentLayout" type="PanelContainer"]
 custom_minimum_size = Vector2(400, 400)

@@ -13,10 +13,29 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if current_item != null:
-		if Input.is_action_just_pressed("mouse_left_click") and not current_item.is_selected and held_item == null and current_item.has_focus:
-			_hold_item(current_item)
-			return
+		if not current_item.is_selected and held_item == null and current_item.has_focus:
+			if Input.is_action_just_pressed("shift+m1") and current_item.is_stackable:
+				if current_item.current_stack == 1:
+					_hold_item(current_item)
+				else:
+					var remainer: int = current_item.current_stack % 2
+					var half_stack: int = roundi(current_item.current_stack / 2.0)
+					var stack_to_hold: int = half_stack
+					if remainer != 0: stack_to_hold -= remainer
+					current_item.current_stack = half_stack
+					var item_scene: PackedScene = load(current_item.scene_file_path)
+					var new_item: Item = item_scene.instantiate()
+					add_child(new_item)
+					new_item.global_position = get_global_mouse_position()
+					new_item.current_stack = stack_to_hold
+					new_item.rotation = current_item.rotation
+					_hold_item(new_item)
+				return
+			if Input.is_action_just_pressed("mouse_left_click"):
+				_hold_item(current_item)
+				return
 
+	# Equipment Slots
 	if held_item != null:
 		if current_slot != null:
 			_check_slot_is_valid()
@@ -38,9 +57,24 @@ func _process(_delta: float) -> void:
 						current_slot.stored_item = temporary_item
 					return
 
-		if Input.is_action_just_pressed("mouse_left_click") and (held_item.state == Item.States.VALID or held_item.state == Item.States.FOCUS):
-			_place_item()
-			return
+		if Input.is_action_just_pressed("mouse_left_click"):
+			if held_item.state == Item.States.VALID:
+				_place_item()
+				return
+			elif held_item.state == Item.States.INTERACT:
+				var stack_item: Item = held_item.get_overlapping_stack_item()
+				if stack_item.current_stack >= stack_item.max_stack: return
+				if stack_item.current_stack + held_item.current_stack > stack_item.max_stack:
+					held_item.current_stack = (held_item.current_stack + stack_item.current_stack) - stack_item.max_stack
+					stack_item.current_stack = stack_item.max_stack
+					return
+
+				stack_item.current_stack += held_item.current_stack
+				held_item.queue_free()
+				held_item = null
+				await get_tree().create_timer(0.01).timeout	#Hack otherwise item will be in INTERACT state.
+				stack_item.state = Item.States.VALID
+				return
 
 	elif Input.is_action_just_pressed("mouse_left_click") and current_slot != null:
 		if current_slot.has_mouse_focus and current_slot.stored_item != null:

@@ -2,13 +2,25 @@ extends Area2D
 class_name Item
 
 @onready var texture_rect := $TextureRect
+@onready var stack_label := $TextureRect/StackCountLabel
 
 @export var item_type: ItemType
+@export var is_stackable := false
+@export_range(1, 1000, 1) var max_stack : int = 1
 
-enum States {VALID, INVALID, FOCUS}
+enum States {VALID, INVALID, FOCUS, INTERACT}
 var state := States.VALID : set = _set_state
 var is_selected := false
 var has_focus := false
+var current_stack : int = 1 : set = set_current_stack
+
+func set_current_stack(new_value: int) -> void:
+	current_stack = clampi(new_value, 1, max_stack)
+	if current_stack == 1:
+		stack_label.hide()
+	else:
+		stack_label.show()
+		stack_label.text = "x%s" % current_stack
 
 func _set_state(new_state: States) -> void:
 	state = new_state
@@ -22,6 +34,9 @@ func _set_state(new_state: States) -> void:
 		States.FOCUS:
 			texture_rect.material.set_shader_parameter("color_intensity", 0.08)
 			texture_rect.material.set_shader_parameter("color", Color.WHITE)
+		States.INTERACT:
+			texture_rect.material.set_shader_parameter("color_intensity", 0.15)
+			texture_rect.material.set_shader_parameter("color", Color.YELLOW)
 			
 
 func _process(delta: float) -> void:
@@ -43,6 +58,7 @@ func _process(delta: float) -> void:
 	if rotation_degrees >= 360:
 		rotation_degrees = 0
 
+	stack_label.rotation_degrees = rotation_degrees * -1
 
 func _validate_area() -> void:
 	var overlap_amount : int = get_overlapping_areas().size()
@@ -55,6 +71,17 @@ func _validate_area() -> void:
 		if area is Item:
 			state = States.INVALID
 
+			if scene_file_path == area.scene_file_path and is_stackable:
+				state = States.INTERACT
+
+func get_overlapping_stack_item() -> Item:
+	for area in get_overlapping_areas():
+		if area is Item:
+			if scene_file_path == area.scene_file_path and is_stackable:
+				return area
+
+	return null
+
 
 func _on_area_entered(_area:Area2D) -> void:
 	_validate_area()
@@ -63,7 +90,7 @@ func _on_area_exited(_area:Area2D) -> void:
 	_validate_area()
 
 func _on_mouse_entered() -> void:
-	if state == States.INVALID:
+	if state == States.INVALID or state == States.INTERACT or is_selected:
 		return
 	state = States.FOCUS
 	has_focus = true

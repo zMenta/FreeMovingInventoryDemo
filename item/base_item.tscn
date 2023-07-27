@@ -1,28 +1,30 @@
 [gd_scene load_steps=8 format=3 uid="uid://bb3sug6615rbi"]
 
-[ext_resource type="Script" path="res://item/item.gd" id="1_dygcw"]
-[ext_resource type="Script" path="res://resources/item_type_resource.gd" id="2_1qaf0"]
-[ext_resource type="Texture2D" uid="uid://da28a7exmxujt" path="res://assets/hat.png" id="2_jfqwb"]
-[ext_resource type="Shader" path="res://shaders/blend_texture_with_color.gdshader" id="2_ruc7a"]
+[ext_resource type="Script" path="res://item/item.gd" id="1_hj7dl"]
+[ext_resource type="Script" path="res://resources/item_type_resource.gd" id="2_k265e"]
+[ext_resource type="Shader" path="res://shaders/blend_texture_with_color.gdshader" id="3_wsv8r"]
+[ext_resource type="Texture2D" uid="uid://da28a7exmxujt" path="res://assets/hat.png" id="4_8hdik"]
 
-[sub_resource type="Resource" id="Resource_ubjwy"]
-script = ExtResource("2_1qaf0")
+[sub_resource type="Resource" id="Resource_6h6px"]
+resource_local_to_scene = true
+script = ExtResource("2_k265e")
 type = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rmf87"]
 resource_local_to_scene = true
-shader = ExtResource("2_ruc7a")
+shader = ExtResource("3_wsv8r")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/color_intensity = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgvtw"]
-size = Vector2(130, 130)
+resource_local_to_scene = true
+size = Vector2(114, 130)
 
 [node name="Item" type="Area2D"]
 collision_layer = 4
 collision_mask = 15
-script = ExtResource("1_dygcw")
-item_type = SubResource("Resource_ubjwy")
+script = ExtResource("1_hj7dl")
+item_type = SubResource("Resource_6h6px")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_rmf87")
@@ -31,15 +33,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -66.0
+offset_left = -58.0
 offset_top = -66.0
-offset_right = 64.0
+offset_right = 56.0
 offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_jfqwb")
+texture = ExtResource("4_8hdik")
 expand_mode = 1
+stretch_mode = 5
+
+[node name="StackCountLabel" type="Label" parent="TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "x5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vgvtw")
